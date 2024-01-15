@@ -1,0 +1,35 @@
+{
+    "folders": [
+        {
+            "path": "."
+        }
+    ],
+    "settings": {
+        "workbench.colorTheme": "Monokai",
+        "restoreTerminals.terminals": [
+            {
+                "splitTerminals": [
+                    {
+                        "name": "build",
+                        "commands": ["cls"],
+                        "color": "red",
+                        "icon": "repo"
+                    },
+                    {
+                        "name": "dev",
+                        "commands": ["cls"],
+                        "icon": "keyboard"
+                    }
+                ]
+            },
+            {
+                "splitTerminals": [
+                    {
+                        "name": "cmd",
+                        "commands": ["cls"]
+                    }
+                ]
+            }
+        ]
+    }
+}
