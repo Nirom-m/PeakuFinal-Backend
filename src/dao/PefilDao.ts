@@ -1,10 +1,23 @@
-import Conec from "../settings/ConectionDB";
+import ConectionDB from "../settings/ConectionDB";
 import { Request, Response } from 'express';
 
 class PerfilDao {
-    protected static  obtenerPerfiles = async (res:Response)=>{
+    protected static async obtenerPerfiles(req: Request, res: Response){
         try{
-            const [result]= await Conec.query("SELECT * FROM estado_perfil")
+            const query = "SELECT * FROM estado_perfil"
+            const [result] = await ConectionDB.query(query)
+            console.log(result);
+                res.status(200).json(result);
+            }
+        catch(err) {
+            console.log(err);
+            res.status(400).json({ respuesta: 'Error en la consulta' });
+        };
+    }
+    protected static async obtenerPerfil(req: Request, res: Response){
+        try{
+            const query = "SELECT"
+            const [result] = await ConectionDB.query(query)
             console.log(result);
                 res.status(200).json(result);
             }

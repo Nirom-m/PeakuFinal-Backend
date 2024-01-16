@@ -1,10 +1,10 @@
 import PerfilDao from "../dao/PefilDao";
-import { Response } from 'express';
+import { Request, Response } from 'express';
 
 class PerfilController extends PerfilDao{
 
     public consulta(req: Request, res: Response) {
-        PerfilController.obtenerPerfiles(res);
+        PerfilController.obtenerPerfiles(req,res);
     }
 }
 

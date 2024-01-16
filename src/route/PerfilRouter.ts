@@ -1,6 +1,5 @@
 import { Router } from 'express';
 import perfilController from '../controller/PerfilController';
-import Conec from '../settings/ConectionDB';
 
 
 class PerfilRouter{
@@ -13,17 +12,7 @@ class PerfilRouter{
     }
 
     public configRouter():void{
-        this.rutaApi.get('/todos', async(req, res)=>{
-            try{
-                const [result]= await Conec.query("SELECT * FROM estado_perfil")
-                console.log('entra aqui');
-                    res.status(200).json(result);
-                }
-            catch(err) {
-                console.log(err);
-                res.status(400).json({ respuesta: 'Error en la consulta' });
-            }
-        })
+        this.rutaApi.use('/todos', perfilController.consulta)
     }
 
 }

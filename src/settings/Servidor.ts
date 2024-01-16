@@ -3,18 +3,20 @@ import cors from 'cors';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
 
-import Conec from './ConectionDB';
+
 import perfilRouter from '../route/PerfilRouter';
+import ConectionDB from './ConectionDB';
 
 class Servidor{
 
     public app : express.Application;
 
     constructor(){
-        dotenv.config({ path: 'Variables.env' });
+        dotenv.config({ path: 'variables.env' });
         this.app=express()
         this.iniciarConfig();
         this.iniciarRutas();
+        ConectionDB.connect()
         
     }
     public iniciarConfig() {
@@ -37,6 +39,14 @@ class Servidor{
         this.app.listen(this.app.get('PORT'), () => {
             console.log('backend listo en el puerto', this.app.get('PORT'));
         });
+        ConectionDB.connect()
+        .then(() => {
+            console.log('Connected');
+        })
+        .catch((err) => {
+            console.log("Error: ", err);
+        }
+        )
     }
 }
 
