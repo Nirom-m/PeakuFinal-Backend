@@ -1,24 +1,14 @@
-import mysql from "mysql2";
-const ConectionDB=()=>{
-    const URL = String(process.env.DATABASE_URL)
-    const Conec= mysql.createConnection(URL)
-    
-    Conec.connect(err => {
-        if (err) {
-            console.error('Error al conectar a la base de datos:', err);
-            return;
-        }
-        console.log('Conexión exitosa a la base de datos MySQL');
-    });
-
-    Conec.end(err => {
-        if (err) {
-          console.error('Error al cerrar la conexión a la base de datos:', err);
-          return;
-        }
-        console.log('Conexión cerrada exitosamente');
-      });
-}
+import { createPool } from "mysql2/promise";
 
 
-export default ConectionDB;
+  const Conec= createPool({
+    database: 'trabook',
+    user: 'udux51x7o2335ryd7skr',
+    host: 'aws.connect.psdb.cloud',
+    password: 'pscale_pw_H2HquuPMLaISwG8dkthT0ttXEeyXa96RiCYLQvvsq0E',
+    ssl:{
+      rejectUnauthorized: true
+    }
+  })
+
+export default Conec;

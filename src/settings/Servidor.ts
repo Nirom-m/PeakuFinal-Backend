@@ -2,7 +2,9 @@ import express from 'express';
 import cors from 'cors';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
-import ConectionDB from './ConectionDB';
+
+import Conec from './ConectionDB';
+import perfilRouter from '../route/PerfilRouter';
 
 class Servidor{
 
@@ -12,7 +14,7 @@ class Servidor{
         dotenv.config({ path: 'Variables.env' });
         this.app=express()
         this.iniciarConfig();
-        ConectionDB();
+        this.iniciarRutas();
         
     }
     public iniciarConfig() {
@@ -26,6 +28,10 @@ class Servidor{
         //permite recibir parametros o consultas
         this.app.use(express.urlencoded({ extended: true }));
     }
+    public iniciarRutas() {
+        this.app.use('/api/public/',perfilRouter)
+    }
+
 
     public iniciarServidor() {
         this.app.listen(this.app.get('PORT'), () => {
