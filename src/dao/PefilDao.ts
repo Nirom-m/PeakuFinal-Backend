@@ -14,6 +14,7 @@ class PerfilDao {
         };
     }
 
+    
 }
 
 export default PerfilDao;
