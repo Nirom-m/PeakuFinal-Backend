@@ -20,7 +20,6 @@ class ArticuloDao {
             const{}=parametros;
             delete parametros._id;
             delete parametros.datosUsuario;
-
         }
         catch{
 
