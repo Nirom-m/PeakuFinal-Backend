@@ -1,10 +1,13 @@
-import PerfilDao from "../dao/PefilDao";
+import PerfilDao from "../dao/ArticuloDao";
 import { Request, Response } from 'express';
 
 class PerfilController extends PerfilDao{
 
     public consulta(req: Request, res: Response) {
-        PerfilController.obtenerPerfiles(req,res);
+        PerfilController.obtenerArticulos(req,res);
+    }
+    public crear(req: Request, res: Response) {
+        PerfilController.crearArticulo(req.body, res);
     }
 }
 

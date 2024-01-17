@@ -1,8 +1,8 @@
 import { Router } from 'express';
-import perfilController from '../controller/PerfilController';
+import perfilController from '../controller/ArtuculoController';
 
 
-class PerfilRouter{
+class ArticuloRouter{
     //varible tipo router
     public rutaApi: Router;
 
@@ -17,6 +17,6 @@ class PerfilRouter{
 
 }
 
-const perfilRouter = new PerfilRouter();
+const articuloRouter = new ArticuloRouter();
 // se exporta la propiedad par que llame todos los endpoint
-export default perfilRouter.rutaApi;
+export default articuloRouter.rutaApi;

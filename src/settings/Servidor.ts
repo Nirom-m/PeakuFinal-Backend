@@ -4,8 +4,9 @@ import morgan from 'morgan';
 import dotenv from 'dotenv';
 
 
-import perfilRouter from '../route/PerfilRouter';
+import articuloRouter from '../route/ArticuloRouter';
 import ConectionDB from './ConectionDB';
+import planesRouter from '../route/PLanesRouter';
 
 class Servidor{
 
@@ -31,7 +32,8 @@ class Servidor{
         this.app.use(express.urlencoded({ extended: true }));
     }
     public iniciarRutas() {
-        this.app.use('/api/public/',perfilRouter)
+        this.app.use('/api/public/',articuloRouter)
+        this.app.use('/api/public/planes',planesRouter)
     }
 
 
