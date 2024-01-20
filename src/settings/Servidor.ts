@@ -5,9 +5,11 @@ import dotenv from "dotenv";
 
 import articuloRouter from "../route/ArticuloRouter";
 import ConectionDB from "./ConectionDB";
-import planesRouter from "../route/PLanesRouter";
+
 import perfilRouter from "../route/PerfilRouter";
 import seguridad from "../middleware/Seguidad";
+import PlanesRouter from "../route/PlanesRouter";
+import clienteRouter from "../route/ClienteRouter";
 
 class Servidor {
     public app: express.Application;
@@ -32,11 +34,12 @@ class Servidor {
     }
     public iniciarRutas() {
         this.app.use("/api/public/", articuloRouter);
-        this.app.use("/api/public/planes", planesRouter);
+        this.app.use("/api/public/planes", PlanesRouter);
         this.app.use("/api/private/perfiles", perfilRouter);
+        this.app.use('/api/private/cliente', clienteRouter);
         /* this.app.use('/api/public/reserva ,reservaRouter')
         this.app.use('/api/public/viaje ,viajeRouter')
-        this.app.use('/api/private/cliente, seguridad.analizartoken, a')
+        
     */
     }
 

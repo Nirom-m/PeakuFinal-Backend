@@ -7,6 +7,7 @@ class PerfilController extends PerfilDao {
     }
     public crear(req: Request, res: Response) {
         PerfilController.crearPerfil(req, res);
+        
     }
 }
 

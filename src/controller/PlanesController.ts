@@ -2,7 +2,7 @@ import PlanesDao from "../dao/PlanesDao";
 import { Request, Response } from "express";
 
 class PlanesController extends PlanesDao {
-    public consultar(res: Response) {
+    public consultar(req:Request,res: Response) {
         PlanesController.obtenerPlanes(res);
     }
 

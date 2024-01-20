@@ -56,6 +56,7 @@ class PerfilDao {
             res.status(400).json({ respuesta: "Error en la consulta" });
         }
     }
+    
 
     protected static async actualizarPerfil(
         identifiacador: any,
