@@ -1,20 +1,18 @@
-import { Router } from 'express';
-import perfilController from '../controller/ArtuculoController';
+import { Router } from "express";
+import perfilController from "../controller/ArticuloController";
 
-
-class ArticuloRouter{
+class ArticuloRouter {
     //varible tipo router
     public rutaApi: Router;
 
-    constructor(){
+    constructor() {
         this.rutaApi = Router();
         this.configRouter();
     }
 
-    public configRouter():void{
-        this.rutaApi.use('/todos', perfilController.consulta)
+    public configRouter(): void {
+        this.rutaApi.use("/todos", perfilController.consulta);
     }
-
 }
 
 const articuloRouter = new ArticuloRouter();
