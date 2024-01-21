@@ -12,7 +12,7 @@ class ClienteController extends ClienteDao {
     }
 
     public crear(req: Request, res: Response) {
-        //PlanesController.crearPlan(req, res);
+        ClienteController.crearCliente(req, res);
     }
 
     public actualizar(req: Request, res: Response) {

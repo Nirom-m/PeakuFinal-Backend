@@ -35,7 +35,7 @@ class Servidor {
     public iniciarRutas() {
         this.app.use("/api/public/", articuloRouter);
         this.app.use("/api/public/planes", PlanesRouter);
-        this.app.use("/api/private/perfiles", perfilRouter);
+        this.app.use("/api/private/perfiles",seguridad.analizarToken, perfilRouter);
         this.app.use('/api/private/cliente', clienteRouter);
         /* this.app.use('/api/public/reserva ,reservaRouter')
         this.app.use('/api/public/viaje ,viajeRouter')

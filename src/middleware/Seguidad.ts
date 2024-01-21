@@ -6,11 +6,14 @@ class Seguridad {
         //te da elaccso a la base de datos
         if (req.headers.authorization) {
             try {
-                const llave = String(process.env.DATABASE_URL);
-                const tokenRecibido = req.headers.authorization?.split(
+                console.log('entra en el try');
+                const llave = String(process.env.CLAVE);
+                const tokenRecibido = req.headers.authorization ?.split(
                     " "
                 )[1] as string;
+                console.log(tokenRecibido);
                 const infoUsuario = jwt.verify(tokenRecibido, llave);
+                console.log(infoUsuario);
                 req.body.datosUsuario = infoUsuario;
                 next();
             } catch (error) {

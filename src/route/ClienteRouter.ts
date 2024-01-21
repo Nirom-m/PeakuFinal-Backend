@@ -13,9 +13,9 @@ class ClienteRouter {
     }
 
     public configRouter(): void {
-       this.rutaApi.get("/todos", clienteController.consultar ); 
+        this.rutaApi.get("/todos", clienteController.consultar ); 
+        this.rutaApi.post("/crear", clienteController.crear);
        /* this.rutaApi.get("/uno/:codigo", planesController.consultarUno);
-        this.rutaApi.post("/crear", planesController.crear);
         this.rutaApi.put("/actualizar/:codigo", planesController.actualizar);
         this.rutaApi.delete("/eliminar/:codigo", planesController.eliminar);
     */}
