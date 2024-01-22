@@ -1,5 +1,5 @@
 import { Router } from "express";
-import planesController from "../controller/PlanesController";
+import planesController from "../../controller/public/PlanesController";
 
 class PlanesRouter {
     //variable tipo Router
@@ -13,9 +13,6 @@ class PlanesRouter {
     public configRouter(): void {
         this.rutaApi.get("/todos", planesController.consultar);
         this.rutaApi.get("/uno/:codigo", planesController.consultarUno);
-        this.rutaApi.post("/crear", planesController.crear);
-        this.rutaApi.put("/actualizar/:codigo", planesController.actualizar);
-        this.rutaApi.delete("/eliminar/:codigo", planesController.eliminar);
     }
 }
 

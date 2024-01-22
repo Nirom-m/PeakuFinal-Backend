@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
-import ConectionDB from "../settings/ConectionDB";
-import ClienteEntidad from "../entities/ClienteEntidad";
+import ConectionDB from "../../settings/ConectionDB";
+import ClienteEntidad from "../../entities/ClienteEntidad";
 import Cifrado from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 
-class ClienteDao {
+class ClienteDaoPrivate {
     protected static async obtenerClientes(res: Response): Promise<any> {
         try {
             const query = "SELECT * FROM cliente";
@@ -52,4 +52,4 @@ class ClienteDao {
 }
 
 
-export default ClienteDao;
+export default ClienteDaoPrivate;

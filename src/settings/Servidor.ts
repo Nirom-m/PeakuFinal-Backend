@@ -3,13 +3,13 @@ import cors from "cors";
 import morgan from "morgan";
 import dotenv from "dotenv";
 
-import articuloRouter from "../route/ArticuloRouter";
 import ConectionDB from "./ConectionDB";
 
-import perfilRouter from "../route/PerfilRouter";
+
 import seguridad from "../middleware/Seguidad";
-import PlanesRouter from "../route/PlanesRouter";
-import clienteRouter from "../route/ClienteRouter";
+import PlanesRouter from "../route/public/PlanesRouter";
+import clienteRouter from "../route/public/ClienteRouter";
+import PlanesRouterPrivate from "../route/private/PlanesRouterPrivate";
 
 class Servidor {
     public app: express.Application;
@@ -33,10 +33,13 @@ class Servidor {
         this.app.use(express.urlencoded({ extended: true }));
     }
     public iniciarRutas() {
-        this.app.use("/api/public/", articuloRouter);
+        //Rutas Publicas
         this.app.use("/api/public/planes", PlanesRouter);
-        this.app.use("/api/private/perfiles",seguridad.analizarToken, perfilRouter);
-        this.app.use('/api/private/cliente', clienteRouter);
+        this.app.use('/api/public/cliente', clienteRouter);
+        //Rutas Privadas
+        
+        this.app.use('/api/private/cliente',seguridad.analizarToken, clienteRouter);
+        this.app.use("/api/private/planes",seguridad.analizarToken,PlanesRouterPrivate);
         /* this.app.use('/api/public/reserva ,reservaRouter')
         this.app.use('/api/public/viaje ,viajeRouter')
         
