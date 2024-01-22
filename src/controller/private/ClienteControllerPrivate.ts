@@ -1,10 +1,10 @@
 import { Request, Response } from "express";
-import ClienteDao from "../dao/CilenteDao";
+import ClienteDaoPrivate from "../../dao/private/ClienteDaoPrivate";
 
-class ClienteController extends ClienteDao {
+class ClienteControllerPrivate extends ClienteDaoPrivate {
 
     public consultar(req:Request, res: Response) {
-        ClienteController.obtenerClientes(res)
+        ClienteControllerPrivate.obtenerClientes(res)
     }
 
     public consultarUno(req: Request, res: Response) {
@@ -12,7 +12,7 @@ class ClienteController extends ClienteDao {
     }
 
     public crear(req: Request, res: Response) {
-        //PlanesController.crearPlan(req, res);
+        ClienteControllerPrivate.crearCliente(req, res);
     }
 
     public actualizar(req: Request, res: Response) {
@@ -24,6 +24,6 @@ class ClienteController extends ClienteDao {
 
 }
 
-const clienteController = new ClienteController();
+const clienteControllerPrivate = new ClienteControllerPrivate();
 
-export default clienteController;
+export default clienteControllerPrivate;

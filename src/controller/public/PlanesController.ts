@@ -1,4 +1,4 @@
-import PlanesDao from "../dao/PlanesDao";
+import PlanesDao from "../../dao/public/PlanesDao";
 import { Request, Response } from "express";
 
 class PlanesController extends PlanesDao {
@@ -10,16 +10,6 @@ class PlanesController extends PlanesDao {
         PlanesController.obtenerUno(req.params.codigo, res);
     }
 
-    public crear(req: Request, res: Response) {
-        PlanesController.crearPlan(req, res);
-    }
-
-    public actualizar(req: Request, res: Response) {
-        PlanesController.actualizarPlan(req.params.codigo, req, res);
-    }
-    public eliminar(req: Request, res: Response) {
-        PlanesController.eliminarPlan(req.params.codigo, res);
-    }
 }
 
 const planesController = new PlanesController();
