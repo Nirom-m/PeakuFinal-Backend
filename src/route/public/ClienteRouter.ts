@@ -14,8 +14,11 @@ class ClienteRouter {
 
 
     public configRouter(): void {
-        this.rutaApi.post("/login", clienteController.iniciarSesion ); 
+        // this.rutaApi.post("/login", clienteController.iniciarSesion ); 
         this.rutaApi.post("/crear", clienteController.crearCliente);
+        this.rutaApi.get("/consultarId/:id", clienteController.consultarClienteId);
+        this.rutaApi.get("/consultarEmail", clienteController.consultarClienteEmail);
+
     }
 }
 

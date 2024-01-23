@@ -5,7 +5,9 @@ import Cifrado from 'bcryptjs'
 import jwt from 'jsonwebtoken'
 
 class ClienteDaoPrivate {
-    protected static async obtenerClientes(res: Response): Promise<any> {
+
+    //ELIMINAR
+    /* protected static async obtenerClientes(res: Response): Promise<any> {
         try {
             const query = "SELECT * FROM cliente";
             const [result] = await ConectionDB.query(query);
@@ -13,7 +15,7 @@ class ClienteDaoPrivate {
         } catch (err) {
             res.status(400).json({ respuesta: "error en la consulta" });
         }
-    }
+    } */
 
     protected static async crearCliente(
         req: Request,

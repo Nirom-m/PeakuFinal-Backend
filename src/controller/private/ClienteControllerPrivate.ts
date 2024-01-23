@@ -4,7 +4,7 @@ import ClienteDaoPrivate from "../../dao/private/ClienteDaoPrivate";
 class ClienteControllerPrivate extends ClienteDaoPrivate {
 
     public consultar(req:Request, res: Response) {
-        ClienteControllerPrivate.obtenerClientes(res)
+        // ClienteControllerPrivate.obtenerClientes(res)
     }
 
     public consultarUno(req: Request, res: Response) {

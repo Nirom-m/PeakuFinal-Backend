@@ -2,7 +2,7 @@
 
 class ClienteEntidad {
     public email: string;
-    public telefono: number;
+    public telefono: string;
     public direccion: string;
     public username: string;
     public password: string;
@@ -11,7 +11,7 @@ class ClienteEntidad {
     public rol:string;
     constructor(
         email: string,
-        telef: number,
+        telef: string,
         direc: string,
         username: string,
         password: string,

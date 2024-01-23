@@ -11,8 +11,8 @@ class PlanesRouterPrivate {
     }
 
     public configRouter(): void {
-        this.rutaApi.get("/todos", planesControllerPrivate.consultar);
-        this.rutaApi.get("/uno/:codigo", planesControllerPrivate.consultarUno);
+        /* this.rutaApi.get("/todos", planesControllerPrivate.consultar);
+        this.rutaApi.get("/uno/:codigo", planesControllerPrivate.consultarUno); */
         this.rutaApi.post("/crear", planesControllerPrivate.crear);
         this.rutaApi.put("/actualizar/:codigo", planesControllerPrivate.actualizar);
         this.rutaApi.delete("/eliminar/:codigo", planesControllerPrivate.eliminar);
