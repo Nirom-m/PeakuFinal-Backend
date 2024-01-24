@@ -13,7 +13,7 @@ class Seguridad {
             String(process.env.CLAVE),
             { expiresIn: "3 days" }
         );
-        return { token: `Bearer ${token}`};
+        return { token: token};
     }
     public static analizarToken(req: Request, res: Response, next: NextFunction) {
         try {
