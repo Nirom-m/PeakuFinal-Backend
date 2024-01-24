@@ -5,8 +5,8 @@ class Seguridad {
 
     public static emitirToken(usuario: any) {
         const token = jwt.sign(
-            {
-                username: usuario.username,
+            {   
+                nombre: usuario.nombre,
                 rol: usuario.rol,
                 email: usuario.email,
             },

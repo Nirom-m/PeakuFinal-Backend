@@ -41,7 +41,7 @@ class ClienteService {
 
     public static async crearCliente(req: Request): Promise<any> {
         try {
-            const { email, telefono, direccion, username, password, nombre, apellidos } = req.body;
+            const { email, telefono, direccion, password, nombre, apellidos } = req.body;
 
             const verificarExistencia = await ClienteDao.obtenerClienteEmail(email);
 
@@ -49,7 +49,7 @@ class ClienteService {
                 return { status: 409, message: "Ya existe un cliente con ese correo" };
             }
 
-            const respuestaCreacion = await ClienteDao.crearCliente(email, telefono, direccion, username, password, nombre, apellidos);
+            const respuestaCreacion = await ClienteDao.crearCliente(email, telefono, direccion, password, nombre, apellidos);
 
             if (!respuestaCreacion) {
                 return { status: 500, message: "No se ha logrado crear el cliente" };
@@ -64,8 +64,8 @@ class ClienteService {
 
     public static async verificarInicioSesion(req: Request): Promise<any> {
         try {
-            const { username, password } = req.body;
-            const verificarCredenciales = await ClienteDao.obtenerClienteUsername(username);
+            const { email, password } = req.body;
+            const verificarCredenciales = await ClienteDao.obtenerClienteEmail(email);
             
             if (!verificarCredenciales) {
                 return { status: 401, message: "Empleado no encontrado, credenciales de inicio de sesion incorrectas" };

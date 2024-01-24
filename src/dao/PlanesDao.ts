@@ -21,7 +21,7 @@ class PlanesDao {
         try {
             const query = `SELECT * FROM plan_vacacional WHERE plan_id = ${identificador}`;
             const result = await ConectionDB.query(query);
-            res.status(200).json(result);
+            res.status(200).json(result[0]);
 
         } catch (err) {
             res.status(400).json({ respuesta: "Error en la consulta" });

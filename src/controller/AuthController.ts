@@ -7,7 +7,6 @@ import Seguridad from "../middleware/Seguridad";
 class AuthController {
 
     public async iniciarSesion(req: Request, res: Response) {
-        const { username, password } = req.body;
 
         // Verificamos credenciales ingresadas con la base de datos
         const verificarCredenciales = await ClienteService.verificarInicioSesion(req);
