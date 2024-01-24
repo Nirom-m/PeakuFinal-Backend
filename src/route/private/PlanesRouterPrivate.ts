@@ -13,7 +13,6 @@ class PlanesRouterPrivate {
 
     public configRouter(): void {
         this.rutaApi.use(Seguridad.analizarToken);
-        this.rutaApi.get("/todos", planesController.consultar);
         this.rutaApi.get("/uno/:codigo", planesController.consultarUno);
         this.rutaApi.post("/crear", planesController.crear);
         this.rutaApi.put("/actualizar/:codigo", planesController.actualizar);
