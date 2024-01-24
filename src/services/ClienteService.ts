@@ -1,7 +1,8 @@
 
 import { RowDataPacket } from "mysql2";
-import ClienteDao from "../dao/public/CilenteDao";
+import ClienteDao from "../dao/CilenteDao";
 import { Request } from "express";
+import Cifrado from 'bcryptjs'
 
 
 class ClienteService {
@@ -64,7 +65,20 @@ class ClienteService {
     public static async verificarInicioSesion(req: Request): Promise<any> {
         try {
             const { username, password } = req.body;
+            const verificarCredenciales = await ClienteDao.obtenerClienteUsername(username);
             
+            if (!verificarCredenciales) {
+                return { status: 401, message: "Empleado no encontrado, credenciales de inicio de sesion incorrectas" };
+            }
+
+            const verificarContrasena = await Cifrado.compare(password, verificarCredenciales.password);
+
+            if (!verificarContrasena) {
+                return { status: 401, message: "Contrasena incorrecta" };
+            }
+            
+            return { status: 200, data: verificarCredenciales };
+
         } catch (err) {
             console.error(err);
             throw new Error("Error interno del servidor");

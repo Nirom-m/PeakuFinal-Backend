@@ -1,5 +1,5 @@
 import { Router } from "express";
-import planesController from "../../controller/public/PlanesController";
+import planesController from "../../controller/PlanesController";
 
 class PlanesRouter {
     //variable tipo Router

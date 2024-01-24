@@ -1,6 +1,7 @@
 import { Router } from "express";
-import clienteControllerPrivate from "../../controller/private/ClienteControllerPrivate";
-import planesControllerPrivate from "../../controller/private/PlanesControllerPrivate";
+//import planesControllerPrivate from "../../controller/private/PlanesControllerPrivate";
+import Seguridad from "../../middleware/Seguridad";
+import clienteController from "../../controller/ClienteController";
 
 
 
@@ -14,11 +15,14 @@ class ClienteRouter {
     }
 
     public configRouter(): void {
-        this.rutaApi.get("/todos", clienteControllerPrivate.consultar ); 
-        this.rutaApi.post("/crear", clienteControllerPrivate.crear);
-        this.rutaApi.get("/uno/:codigo", planesControllerPrivate.consultarUno);
+        this.rutaApi.use(Seguridad.analizarToken, Seguridad.verificarRol(['Cliente']));
+        
+        this.rutaApi.get("/todos", clienteController.consultar );
+        /* this.rutaApi.get("/uno/:codigo", planesControllerPrivate.consultarUno);
         this.rutaApi.put("/actualizar/:codigo", planesControllerPrivate.actualizar);
-        this.rutaApi.delete("/eliminar/:codigo", planesControllerPrivate.eliminar);
+        this.rutaApi.delete("/eliminar/:codigo", planesControllerPrivate.eliminar); */
+        //this.rutaApi.get("/consultarId/:id", clienteController.consultarClienteId);
+        this.rutaApi.get("/consultarEmail", clienteController.consultarClienteEmail);
     }
 }
 

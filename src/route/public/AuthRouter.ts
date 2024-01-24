@@ -1,5 +1,5 @@
 import { Router } from "express";
-import authController from "../../controller/public/AuthController";
+import authController from "../../controller/AuthController";
 
 class AuthRouter {
     //variable tipo Router

@@ -6,10 +6,13 @@ import dotenv from "dotenv";
 import ConectionDB from "./ConectionDB";
 
 
-import seguridad from "../middleware/Seguidad";
+import seguridad from "../middleware/Seguridad";
 import PlanesRouter from "../route/public/PlanesRouter";
 import clienteRouter from "../route/public/ClienteRouter";
 import PlanesRouterPrivate from "../route/private/PlanesRouterPrivate";
+import AuthRouter from "../route/public/AuthRouter";
+import ClienteRouterPrivate from "../route/private/ClienteRouterPrivate";
+import ViajeRouter from "../route/public/ViajeRouter";
 
 class Servidor {
     public app: express.Application;
@@ -34,16 +37,11 @@ class Servidor {
     }
     public iniciarRutas() {
         //Rutas Publicas
-        this.app.use("/api/public/planes", PlanesRouter);
-        this.app.use('/api/public/cliente', clienteRouter);
-        //Rutas Privadas
-        
-        this.app.use('/api/private/cliente',seguridad.analizarToken, clienteRouter);
-        this.app.use("/api/private/planes",seguridad.analizarToken,PlanesRouterPrivate);
-        /* this.app.use('/api/public/reserva ,reservaRouter')
-        this.app.use('/api/public/viaje ,viajeRouter')
-        
-    */
+        this.app.use("/api/public/auth", AuthRouter);
+        this.app.use("/api/public/planes", PlanesRouter, PlanesRouterPrivate);
+        this.app.use('/api/public/cliente', clienteRouter, ClienteRouterPrivate);
+        this.app.use("/api/public/viajes", ViajeRouter);
+
     }
 
     public iniciarServidor() {

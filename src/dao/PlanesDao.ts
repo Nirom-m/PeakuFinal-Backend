@@ -1,9 +1,9 @@
-import PLanesEntidad from "../../entities/PlanesEntidad";
-import ConectionDB from "../../settings/ConectionDB";
+import PLanesEntidad from "../entities/PlanesEntidad";
+import ConectionDB from "../settings/ConectionDB";
 import { Request, Response } from "express";
 
+class PlanesDao {
 
-class PlanesDaoPrivate {
     protected static async obtenerPlanes( res: Response): Promise<any> {
         try {
             const query = "SELECT * FROM plan_vacacional";
@@ -125,6 +125,8 @@ class PlanesDaoPrivate {
             });
         }
     }
+
+
 }
 
-export default PlanesDaoPrivate;
+export default PlanesDao;

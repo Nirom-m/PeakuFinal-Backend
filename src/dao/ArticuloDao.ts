@@ -1,4 +1,4 @@
-import ConectionDB from "../../settings/ConectionDB";
+import ConectionDB from "../settings/ConectionDB";
 import { Request, Response } from "express";
 
 class ArticuloDao {

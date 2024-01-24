@@ -1,5 +1,5 @@
 import { Router } from "express";
-import clienteController from "../../controller/public/ClienteController";
+import clienteController from "../../controller/ClienteController";
 
 
 
@@ -15,10 +15,8 @@ class ClienteRouter {
 
     public configRouter(): void {
         // this.rutaApi.post("/login", clienteController.iniciarSesion ); 
-        this.rutaApi.post("/crear", clienteController.crearCliente);
+        this.rutaApi.post("/crear", clienteController.registrarCliente);
         this.rutaApi.get("/consultarId/:id", clienteController.consultarClienteId);
-        this.rutaApi.get("/consultarEmail", clienteController.consultarClienteEmail);
-
     }
 }
 

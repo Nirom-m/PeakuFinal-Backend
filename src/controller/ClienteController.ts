@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
-import ClienteDao from "../../dao/public/CilenteDao";
-import ClienteService from "../../services/ClienteService";
+import ClienteService from "../services/ClienteService";
 
 class ClienteController {
 
@@ -35,7 +34,7 @@ class ClienteController {
         }
     }
 
-    public async crearCliente(req: Request, res: Response) {
+    public async registrarCliente(req: Request, res: Response) {
         try {
             const respuestaCreacion = await ClienteService.crearCliente(req);
 
@@ -49,6 +48,24 @@ class ClienteController {
             res.status(500).json({ error: "Error interno del servidor" });
         }
     }
+
+    public consultar(req:Request, res: Response) {
+        console.log("hola");
+        return res.status(200).json({ respuesta: "hola" });
+    }
+
+    public consultarUno(req: Request, res: Response) {
+        //PlanesController.obtenerUno(req.params.codigo, res);
+    }
+
+    public actualizar(req: Request, res: Response) {
+        //PlanesController.actualizarPlan(req.params.codigo, req, res);
+    }
+    public eliminar(req: Request, res: Response) {
+        //PlanesController.eliminarPlan(req.params.codigo, res);
+    }
+    
+    
 
 }
 

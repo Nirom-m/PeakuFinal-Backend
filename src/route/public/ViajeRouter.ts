@@ -1,4 +1,5 @@
 import { Router } from "express";
+import viajeController from "../../controller/ViajeController";
 
 
 class ViajeRouter{
@@ -13,8 +14,8 @@ class ViajeRouter{
     }
 
     public configRoute():void {
-        this.rutaApi.get("/todos")
-        this.rutaApi.get("/uno/:codigo")
+        this.rutaApi.get("/viajes", viajeController.consultarViajes);
+        this.rutaApi.get("/consultarId/:id", viajeController.consultarViajeId);
     }
 }
 

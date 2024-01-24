@@ -1,6 +1,6 @@
 import { Request, Response } from "express";
-import ConectionDB from "../../settings/ConectionDB";
-import ClienteEntidad from "../../entities/ClienteEntidad";
+import ConectionDB from "../settings/ConectionDB";
+import ClienteEntidad from "../entities/ClienteEntidad";
 import Cifrado from 'bcryptjs'
 import { RowDataPacket } from "mysql2";
 
@@ -63,24 +63,23 @@ class ClienteDao {
         }
     }
 
-    public static async verificarInicioSesion(username: string, password: string): Promise<boolean> {
+    public static async obtenerClienteUsername(username: string): Promise<any> {
         try {
-            const query = "SELECT * FROM cliente WHERE username = ? AND password = ?";
-            const resultado = await ConectionDB.query<RowDataPacket[]>(query, [username, password]);
+            const query = "SELECT * FROM cliente WHERE username = ?";
+            const resultado = await ConectionDB.query<RowDataPacket[]>(query, [username]);
 
             // Verificar si hay resultados
-            if (resultado[0].length > 0) {
-                // Usuario y contraseña válidos, retorna true
-                return true;
-            } else {
-                // Usuario o contraseña incorrectos, retorna false
-                return false;
+            if (resultado[0].length === 0) {
+                return null; // O cualquier valor que desees para indicar que no se encontró el cliente
             }
-        } catch (err) {
+
+            return resultado[0][0];
+        }catch (err) {
             console.error(err);
-            throw new Error("Error interno del servidor al verificar inicio de sesión");
+            throw new Error("Error interno del servidor");
         }
     }
+    
 }
 
 
