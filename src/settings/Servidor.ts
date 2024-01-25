@@ -13,6 +13,7 @@ import PlanesRouterPrivate from "../route/private/PlanesRouterPrivate";
 import AuthRouter from "../route/public/AuthRouter";
 import ClienteRouterPrivate from "../route/private/ClienteRouterPrivate";
 import ViajeRouter from "../route/public/ViajeRouter";
+import ComentarioRouter from "../route/public/ComentarioRouter";
 
 class Servidor {
     public app: express.Application;
@@ -41,6 +42,7 @@ class Servidor {
         this.app.use("/api/public/planes", PlanesRouter, PlanesRouterPrivate);
         this.app.use('/api/public/cliente', clienteRouter, ClienteRouterPrivate);
         this.app.use("/api/public/viajes", ViajeRouter);
+        this.app.use("/api/public/comentarios", ComentarioRouter);
 
     }
 

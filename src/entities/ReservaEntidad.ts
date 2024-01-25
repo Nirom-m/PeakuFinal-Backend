@@ -1,5 +1,5 @@
 class ReservaEntidad {
-    public cliente_id: number;
+    public cliente_id?: number;
     public plan_id: number;
     public viaje_id: number;
     public empleado_id: number;
@@ -9,7 +9,7 @@ class ReservaEntidad {
     public total: number;
 
     constructor(
-        cliente_id: number,
+
         plan_id: number,
         viaje_id: number,
         empleado_id: number,
@@ -18,7 +18,6 @@ class ReservaEntidad {
         descuento: number,
         total: number
     ) {
-        this.cliente_id = cliente_id;
         this.plan_id = plan_id;
         this.viaje_id = viaje_id;
         this.empleado_id = empleado_id;

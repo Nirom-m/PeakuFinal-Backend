@@ -2,6 +2,7 @@
 
 class ViajeEntidad {
 
+    public viaje_id?: number;
     public origen: string;
     public destino: string;
     public fecha_salida: Date;

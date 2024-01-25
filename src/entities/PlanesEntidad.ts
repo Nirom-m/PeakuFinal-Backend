@@ -1,5 +1,6 @@
-class PLanesEntidad {
-    public viaje_id: string;
+class PlanesEntidad {
+    public plan_id?: number;
+    public viaje_id: number;
     public nombre: string;
     public descripcion: string;
     public precio: number;
@@ -9,7 +10,7 @@ class PLanesEntidad {
     public url_img: string;
 
     constructor(
-        viaje_id: string,
+        viaje_id: number,
         nomber: string,
         descripcion: string,
         precio: number,
@@ -29,4 +30,4 @@ class PLanesEntidad {
     }
 }
 
-export default PLanesEntidad;
+export default PlanesEntidad;

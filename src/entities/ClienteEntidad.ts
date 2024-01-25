@@ -1,6 +1,8 @@
 
 
 class ClienteEntidad {
+
+    public cliente_id?: number;
     public email: string;
     public telefono: string;
     public direccion: string;

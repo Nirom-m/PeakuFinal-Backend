@@ -11,9 +11,13 @@ class Seguridad {
                 email: usuario.email,
             },
             String(process.env.CLAVE),
-            { expiresIn: "3 days" }
+            { expiresIn: "1 days" }
         );
-        return { token: token};
+        return {
+            usuario: usuario.nombre,
+            rol: usuario.rol,
+            token: token
+        };
     }
     public static analizarToken(req: Request, res: Response, next: NextFunction) {
         try {

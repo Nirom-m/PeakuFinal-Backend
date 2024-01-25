@@ -10,9 +10,9 @@ class ClienteController {
 
             if (respuestaConsulta.status === 200) {
                 res.status(200).json(respuestaConsulta.data);
-            } else {
-                res.status(respuestaConsulta.status).json({ error: respuestaConsulta.message });
             }
+            res.status(respuestaConsulta.status).json({ error: respuestaConsulta.message });
+            
         } catch (err) {
             console.error(err);
             res.status(500).json({ error: "Error interno del servidor" });
