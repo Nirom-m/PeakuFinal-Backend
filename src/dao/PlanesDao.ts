@@ -4,7 +4,7 @@ import { Request, Response } from "express";
 
 class PlanesDao {
 
-    protected static async obtenerPlanes( res: Response): Promise<any> {
+    public static async obtenerPlanes( res: Response): Promise<any> {
         try {
             const query = "SELECT * FROM plan_vacacional";
             const result = await ConectionDB.query(query);
@@ -14,7 +14,7 @@ class PlanesDao {
             res.status(400).json({ respuesta: "Error en la consulta" });
         }
     }
-    protected static async obtenerUno(
+    public static async obtenerUno(
         identificador: any,
         res: Response
     ): Promise<any> {
@@ -28,7 +28,7 @@ class PlanesDao {
         }
     }
 
-    protected static async crearPlan(req: Request, res: Response) {
+    public static async crearPlan(req: Request, res: Response) {
         try {
             const {
                 viaje_id,
@@ -63,7 +63,7 @@ class PlanesDao {
         }
     }
 
-    protected static async actualizarPlan(
+    public static async actualizarPlan(
         identificador: any,
         req: Request,
         res: Response
@@ -100,7 +100,7 @@ class PlanesDao {
             });
         }
     }
-    protected static async eliminarPlan(
+    public static async eliminarPlan(
         identificador: any,
         res: Response
     ): Promise<any> {

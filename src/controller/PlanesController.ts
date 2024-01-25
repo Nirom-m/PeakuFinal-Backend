@@ -2,23 +2,23 @@ import PlanesDao from "../dao/PlanesDao";
 import { Request, Response } from "express";
 //import PlanesControllerPrivate from "../private/PlanesControllerPrivate";
 
-class PlanesController extends PlanesDao {
+class PlanesController {
     public consultar(req:Request,res: Response) {
-        PlanesController.obtenerPlanes(res);
+        PlanesDao.obtenerPlanes(res);
     }
 
     public consultarUno(req: Request, res: Response) {
-        PlanesController.obtenerUno(req.params.codigo, res);
+        PlanesDao.obtenerUno(req.params.codigo, res);
     }
     public crear(req: Request, res: Response) {
-        PlanesController.crearPlan(req, res);
+        PlanesDao.crearPlan(req, res);
     }
     
     public actualizar(req: Request, res: Response) {
-        PlanesController.actualizarPlan(req.params.codigo, req, res);
+        PlanesDao.actualizarPlan(req.params.codigo, req, res);
     }
     public eliminar(req: Request, res: Response) {
-        PlanesController.eliminarPlan(req.params.codigo, res);
+        PlanesDao.eliminarPlan(req.params.codigo, res);
     }
 
 
