@@ -9,8 +9,9 @@ class ViajeController{
             const resultado = await ViajesService.consultarViajes();
             if (resultado.status === 200) {
                 res.status(200).json(resultado.data);
-            } 
-            res.status(resultado.status).json({ message: resultado.message });
+            } else {
+                res.status(resultado.status).json({ message: resultado.message });
+            }
         } catch (err) {
             console.error(err);
             res.status(500).json({ error: "Error interno del servidor" });
@@ -22,8 +23,9 @@ class ViajeController{
             const resultado = await ViajesService.consultarViajeId(req);
             if (resultado.status === 200) {
                 res.status(200).json(resultado.data);
-            } 
-            res.status(resultado.status).json({ message: resultado.message });
+            } else {
+                res.status(resultado.status).json({ message: resultado.message });
+            }
         } catch (err) {
             console.error(err);
             res.status(500).json({ error: "Error interno del servidor" });
